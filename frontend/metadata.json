@@ -1,0 +1,8 @@
+{
+  "name": "OmniAudit 2.0",
+  "description": "AI-powered security scanner, vulnerability analyzer, and automated remediation IDE.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

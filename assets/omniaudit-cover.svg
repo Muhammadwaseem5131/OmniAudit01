@@ -1,0 +1,17 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#07111f"/>
+  <rect x="60" y="60" width="1480" height="780" rx="32" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
+  <circle cx="1320" cy="220" r="180" fill="#0ea5e9" opacity="0.15"/>
+  <circle cx="300" cy="650" r="220" fill="#22c55e" opacity="0.12"/>
+  <path d="M320 640 L500 460 L650 560 L860 320 L1090 480 L1280 250" stroke="#38bdf8" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="320" cy="640" r="16" fill="#f43f5e"/>
+  <circle cx="500" cy="460" r="16" fill="#f59e0b"/>
+  <circle cx="650" cy="560" r="16" fill="#38bdf8"/>
+  <circle cx="860" cy="320" r="16" fill="#22c55e"/>
+  <circle cx="1090" cy="480" r="16" fill="#38bdf8"/>
+  <circle cx="1280" cy="250" r="16" fill="#f8fafc"/>
+  <text x="180" y="260" fill="#f8fafc" font-family="Segoe UI, Arial, sans-serif" font-size="78" font-weight="700">OmniAudit</text>
+  <text x="180" y="330" fill="#7dd3fc" font-family="Segoe UI, Arial, sans-serif" font-size="34">AI-powered security auditing with multi-agent remediation</text>
+  <rect x="180" y="380" width="320" height="70" rx="16" fill="#0ea5e9"/>
+  <text x="245" y="426" fill="#07111f" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">Kaggle Demo Ready</text>
+</svg>

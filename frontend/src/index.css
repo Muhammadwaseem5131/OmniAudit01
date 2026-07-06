@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-brand: var(--brand-color);
+  --color-brand-rgb: var(--brand-color-rgb);
+  --color-brand-glow: var(--brand-color-glow);
+  --color-brand-glow-hover: var(--brand-color-glow-hover);
+  --color-slate-850: rgba(255, 255, 255, 0.06);
+  --color-workbench-sidebar: #0B0F19;
+  --color-workbench-editor: #0D1117;
+  --color-workbench-statusbar: #070A10;
+}
+
+:root {
+  --brand-color: #0ea5e9;
+  --brand-color-rgb: 14, 165, 233;
+  --brand-color-glow: rgba(14, 165, 233, 0.05);
+  --brand-color-glow-hover: rgba(14, 165, 233, 0.09);
+}
+
+.theme-sky {
+  --brand-color: #0ea5e9;
+  --brand-color-rgb: 14, 165, 233;
+  --brand-color-glow: rgba(14, 165, 233, 0.05);
+  --brand-color-glow-hover: rgba(14, 165, 233, 0.09);
+}
+
+.theme-emerald {
+  --brand-color: #10b981;
+  --brand-color-rgb: 16, 185, 129;
+  --brand-color-glow: rgba(16, 185, 129, 0.05);
+  --brand-color-glow-hover: rgba(16, 185, 129, 0.09);
+}
+
+.theme-violet {
+  --brand-color: #8b5cf6;
+  --brand-color-rgb: 139, 92, 246;
+  --brand-color-glow: rgba(139, 92, 246, 0.05);
+  --brand-color-glow-hover: rgba(139, 92, 246, 0.09);
+}
+
+.theme-amber {
+  --brand-color: #f59e0b;
+  --brand-color-rgb: 245, 158, 11;
+  --brand-color-glow: rgba(245, 158, 11, 0.05);
+  --brand-color-glow-hover: rgba(245, 158, 11, 0.09);
+}
+
+.theme-rose {
+  --brand-color: #f43f5e;
+  --brand-color-rgb: 244, 63, 94;
+  --brand-color-glow: rgba(244, 63, 94, 0.05);
+  --brand-color-glow-hover: rgba(244, 63, 94, 0.09);
+}
+
+.theme-indigo {
+  --brand-color: #6366f1;
+  --brand-color-rgb: 99, 102, 241;
+  --brand-color-glow: rgba(99, 102, 241, 0.05);
+  --brand-color-glow-hover: rgba(99, 102, 241, 0.09);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #0B0F19; /* Unified anti-glare workbench background */
+    color: #e2e8f0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Unified, anti-fatigue low-contrast scrollbars */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #070A10; /* Solid status bar/dark tint */
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1f293d;
+    border-radius: 4px;
+    border: 2px solid #070A10;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 4px rgba(var(--brand-color-rgb), 0.15);
+  }
+  50% {
+    box-shadow: 0 0 8px rgba(var(--brand-color-rgb), 0.3);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s infinite ease-in-out;
+}
+
+@keyframes float-y {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-float-y {
+  animation: float-y 2.2s infinite ease-in-out;
+}
+
+@keyframes path-flow {
+  0% {
+    stroke-dashoffset: 24;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-path-flow {
+  stroke-dasharray: 8 4;
+  animation: path-flow 1s linear infinite;
+}
+
+.code-editor-cursor::after {
+  content: '|';
+  color: var(--brand-color);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* --- B2B Premium Styling & IDE Core Patterns --- */
+
+/* Unified anti-glare panel dividers and borders */
+.ide-border {
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Background panel divisions */
+.ide-bg-sidebar {
+  background-color: #0B0F19 !important; /* Unified Activity Bar/Sidebar */
+}
+
+.ide-bg-editor {
+  background-color: #0D1117 !important; /* Unified Main File Editor Panel */
+}
+
+.ide-bg-statusbar {
+  background-color: #070A10 !important; /* Unified Status Bar */
+}
+
+/* File Tree Hover flat subtle transition (No flashing) */
+.ide-tree-item-hover:hover {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  transition: background-color 0.12s ease;
+}
+
+/* Overlay elements shadow - low-spread, high-precision */
+.ide-overlay-shadow {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Diagnostic Squiggly Underlines */
+.squiggly-critical {
+  text-decoration: underline wavy #ef4444 1.5px !important;
+  text-underline-offset: 4px;
+}
+
+.squiggly-warning {
+  text-decoration: underline wavy #f59e0b 1.5px !important;
+  text-underline-offset: 4px;
+}
+
+/* Glassmorphism Panel Container Styling - Modified to match professional IDE rules */
+.b2b-glass-panel {
+  background: #0D1117 !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Base card styling with highly precise 1px solid separator framework */
+.b2b-card {
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  background: rgba(13, 17, 23, 0.45) !important;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
+              background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Smooth card hover transition: border color glows, background tint expands, and drops precise shadow */
+.b2b-card:hover {
+  border-color: rgba(var(--brand-color-rgb), 0.35) !important;
+  background-color: rgba(var(--brand-color-rgb), 0.08) !important;
+  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(var(--brand-color-rgb), 0.08) !important;
+}
+
+/* Semantic Status Left Borders: Crisp and thin */
+.b2b-border-critical {
+  border-left: 2px solid #FF3B30 !important;
+}
+
+.b2b-border-warning {
+  border-left: 2px solid #FF9500 !important;
+}
+
+.b2b-border-clean {
+  border-left: 2px solid #10B981 !important;
+}
+
+/* ─── Screen entry animation ─── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Shimmer skeleton ─── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.03) 25%,
+    rgba(255,255,255,0.08) 50%,
+    rgba(255,255,255,0.03) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite linear;
+}
+
+/* ─── Slide-in toast entry ─── */
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.animate-in {
+  animation-fill-mode: both;
+}
+
+.slide-in-from-right-4 {
+  animation-name: slide-in-right;
+  animation-duration: 0.28s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ─── Brand glow text ─── */
+.text-brand-glow {
+  text-shadow: 0 0 20px rgba(var(--brand-color-rgb), 0.45);
+}

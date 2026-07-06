@@ -1,0 +1,102 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .box { fill: #0f172a; stroke: #38bdf8; stroke-width: 2; }
+      .agent-box { fill: #1e293b; stroke: #0ea5e9; stroke-width: 2; }
+      .label { fill: #f8fafc; font-family: Segoe UI, Arial, sans-serif; font-size: 14px; font-weight: 600; }
+      .small-label { fill: #cbd5e1; font-family: Segoe UI, Arial, sans-serif; font-size: 12px; }
+      .arrow { stroke: #38bdf8; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#38bdf8" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="700" fill="#07111f"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" style="fill: #f8fafc; font-size: 28px; font-weight: bold; font-family: Segoe UI, Arial, sans-serif;">OmniAudit Architecture</text>
+  
+  <!-- Frontend Section -->
+  <rect x="50" y="100" width="220" height="120" rx="8" class="box"/>
+  <text x="160" y="130" text-anchor="middle" class="label">Frontend</text>
+  <text x="160" y="155" text-anchor="middle" class="small-label">React + Vite</text>
+  <text x="160" y="175" text-anchor="middle" class="small-label">TypeScript</text>
+  <text x="160" y="195" text-anchor="middle" class="small-label">Security Dashboard</text>
+  <text x="160" y="210" text-anchor="middle" class="small-label">IDE Editor</text>
+  
+  <!-- API Layer -->
+  <rect x="350" y="100" width="220" height="120" rx="8" class="box"/>
+  <text x="460" y="130" text-anchor="middle" class="label">Backend API</text>
+  <text x="460" y="155" text-anchor="middle" class="small-label">FastAPI</text>
+  <text x="460" y="175" text-anchor="middle" class="small-label">/api/scan</text>
+  <text x="460" y="195" text-anchor="middle" class="small-label">/api/remediate</text>
+  <text x="460" y="210" text-anchor="middle" class="small-label">/api/health</text>
+  
+  <!-- Agent Orchestration -->
+  <rect x="650" y="100" width="220" height="120" rx="8" class="agent-box"/>
+  <text x="760" y="130" text-anchor="middle" class="label">Agent Layer</text>
+  <text x="760" y="155" text-anchor="middle" class="small-label">Google ADK</text>
+  <text x="760" y="175" text-anchor="middle" class="small-label">Multi-Agent</text>
+  <text x="760" y="195" text-anchor="middle" class="small-label">Orchestration</text>
+  <text x="760" y="210" text-anchor="middle" class="small-label">Swarm Model</text>
+  
+  <!-- MCP Server -->
+  <rect x="950" y="100" width="220" height="120" rx="8" class="box"/>
+  <text x="1060" y="130" text-anchor="middle" class="label">MCP Server</text>
+  <text x="1060" y="155" text-anchor="middle" class="small-label">Filesystem Access</text>
+  <text x="1060" y="175" text-anchor="middle" class="small-label">Tool Interface</text>
+  <text x="1060" y="195" text-anchor="middle" class="small-label">Sandboxed</text>
+  <text x="1060" y="210" text-anchor="middle" class="small-label">Operations</text>
+  
+  <!-- Scanner Engine -->
+  <rect x="200" y="300" width="280" height="120" rx="8" class="box"/>
+  <text x="340" y="330" text-anchor="middle" class="label">Scanner Engine</text>
+  <text x="340" y="355" text-anchor="middle" class="small-label">Pattern Matching</text>
+  <text x="340" y="375" text-anchor="middle" class="small-label">• Hardcoded Secrets</text>
+  <text x="340" y="395" text-anchor="middle" class="small-label">• SQL Injection</text>
+  <text x="340" y="410" text-anchor="middle" class="small-label">• Command Injection</text>
+  
+  <!-- Fix Generator -->
+  <rect x="570" y="300" width="280" height="120" rx="8" class="agent-box"/>
+  <text x="710" y="330" text-anchor="middle" class="label">Fix Generator</text>
+  <text x="710" y="355" text-anchor="middle" class="small-label">AI-Powered Suggestions</text>
+  <text x="710" y="375" text-anchor="middle" class="small-label">• Code Analysis</text>
+  <text x="710" y="395" text-anchor="middle" class="small-label">• LLM Integration</text>
+  <text x="710" y="410" text-anchor="middle" class="small-label">• Best Practices</text>
+  
+  <!-- Data Store -->
+  <rect x="940" y="300" width="230" height="120" rx="8" class="box"/>
+  <text x="1055" y="330" text-anchor="middle" class="label">Data Models</text>
+  <text x="1055" y="355" text-anchor="middle" class="small-label">Pydantic Validation</text>
+  <text x="1055" y="375" text-anchor="middle" class="small-label">• Vulnerabilities</text>
+  <text x="1055" y="395" text-anchor="middle" class="small-label">• Remediations</text>
+  <text x="1055" y="410" text-anchor="middle" class="small-label">• Security Scores</text>
+  
+  <!-- Input/Output -->
+  <rect x="150" y="520" width="300" height="100" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="300" y="550" text-anchor="middle" class="label" style="fill: #22c55e;">Input: Code Upload</text>
+  <text x="300" y="575" text-anchor="middle" class="small-label" style="fill: #a7f3d0;">• Single files</text>
+  <text x="300" y="595" text-anchor="middle" class="small-label" style="fill: #a7f3d0;">• Project folders</text>
+  
+  <rect x="600" y="520" width="300" height="100" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="750" y="550" text-anchor="middle" class="label" style="fill: #f59e0b;">Output: Dashboard</text>
+  <text x="750" y="575" text-anchor="middle" class="small-label" style="fill: #fef3c7;">• Vulnerabilities</text>
+  <text x="750" y="595" text-anchor="middle" class="small-label" style="fill: #fef3c7;">• Fix suggestions</text>
+  
+  <!-- Arrows -->
+  <path class="arrow" d="M 270 160 L 350 160"/>
+  <path class="arrow" d="M 570 160 L 650 160"/>
+  <path class="arrow" d="M 870 160 L 950 160"/>
+  
+  <path class="arrow" d="M 340 220 L 340 300"/>
+  <path class="arrow" d="M 710 220 L 710 300"/>
+  <path class="arrow" d="M 1055 220 L 1055 300"/>
+  
+  <path class="arrow" d="M 300 420 L 300 520"/>
+  <path class="arrow" d="M 750 420 L 750 520"/>
+  
+  <!-- Legend -->
+  <text x="50" y="680" style="fill: #cbd5e1; font-size: 11px; font-family: Segoe UI, Arial, sans-serif;">Multi-Agent System: Cartographer • Secret Hunter • Code Hunter • UI Architect • Remediation Engineer</text>
+</svg>

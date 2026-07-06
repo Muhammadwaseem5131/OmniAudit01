@@ -1,0 +1,41 @@
+<svg width="560" height="280" viewBox="0 0 560 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38bdf8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="560" height="280" fill="#07111f"/>
+  
+  <!-- Main content area -->
+  <rect x="20" y="20" width="520" height="240" rx="12" fill="#0f172a" stroke="url(#grad1)" stroke-width="2"/>
+  
+  <!-- Left section: Icon/illustration -->
+  <circle cx="100" cy="120" r="50" fill="#0ea5e9" opacity="0.2"/>
+  <text x="75" y="135" fill="#38bdf8" font-family="Arial, sans-serif" font-size="48" font-weight="bold">🛡️</text>
+  
+  <!-- Middle section: Key points -->
+  <text x="170" y="50" fill="#f8fafc" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700">OmniAudit</text>
+  
+  <circle cx="175" cy="85" r="3" fill="#22c55e"/>
+  <text x="190" y="90" fill="#d1d5db" font-family="Segoe UI, Arial, sans-serif" font-size="11">Scans code for vulnerabilities</text>
+  
+  <circle cx="175" cy="115" r="3" fill="#22c55e"/>
+  <text x="190" y="120" fill="#d1d5db" font-family="Segoe UI, Arial, sans-serif" font-size="11">AI-powered remediation guidance</text>
+  
+  <circle cx="175" cy="145" r="3" fill="#22c55e"/>
+  <text x="190" y="150" fill="#d1d5db" font-family="Segoe UI, Arial, sans-serif" font-size="11">Multi-agent workflow</text>
+  
+  <circle cx="175" cy="175" r="3" fill="#22c55e"/>
+  <text x="190" y="180" fill="#d1d5db" font-family="Segoe UI, Arial, sans-serif" font-size="11">Security audit in one place</text>
+  
+  <!-- Right section: Visual accent -->
+  <rect x="420" y="60" width="80" height="120" rx="8" fill="#0ea5e9" opacity="0.15" stroke="#38bdf8" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="435" y="120" fill="#38bdf8" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">Multi-Agent</text>
+  <text x="450" y="140" fill="#38bdf8" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">System</text>
+  
+  <!-- Bottom banner -->
+  <rect x="20" y="245" width="520" height="35" rx="8" fill="#1e293b"/>
+  <text x="40" y="265" fill="#7dd3fc" font-family="Segoe UI, Arial, sans-serif" font-size="12">Kaggle Vibe Coding Capstone 2026 • Agents for Good</text>
+</svg>
