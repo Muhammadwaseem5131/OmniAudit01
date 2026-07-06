@@ -275,29 +275,41 @@ def run_python_scanner(files_dict: dict) -> list:
     return vulnerabilities
 
 
+def agent_swarm_enabled() -> bool:
+    """Return True when an AI key is configured for the agent swarm."""
+    return bool(os.getenv("GOOGLE_API_KEY"))
+
+
 # ---------------------------------------------------------------------------
 # Lifespan (replaces deprecated @app.on_event)
 # ---------------------------------------------------------------------------
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Start the background swarm scan when the server boots."""
-    app_state.scan_status = "running"
-    logger.info(f"Starting swarm audit → {os.path.abspath(app_state.target_path)}")
-    print(f"[OmniAudit] Starting swarm audit → {os.path.abspath(app_state.target_path)}")
+    if agent_swarm_enabled():
+        app_state.scan_status = "running"
+        logger.info(f"Starting swarm audit → {os.path.abspath(app_state.target_path)}")
+        print(f"[OmniAudit] Starting swarm audit → {os.path.abspath(app_state.target_path)}")
 
-    async def _scan():
-        try:
-            from agents.swarm import run_scan_workflow
-            await run_scan_workflow(app_state.target_path)
-            app_state.scan_status = "completed"
-            print("[OmniAudit] ✓ Audit complete. Dashboard → output/index.html")
-        except Exception as exc:
-            app_state.scan_status = "failed"
-            app_state.error_message = str(exc)
-            traceback.print_exc()
-            print(f"[OmniAudit] ✗ Audit failed: {exc}")
+        async def _scan():
+            try:
+                from agents.swarm import run_scan_workflow
+                await run_scan_workflow(app_state.target_path)
+                app_state.scan_status = "completed"
+                print("[OmniAudit] ✓ Audit complete. Dashboard → output/index.html")
+            except Exception as exc:
+                app_state.scan_status = "failed"
+                app_state.error_message = str(exc)
+                traceback.print_exc()
+                print(f"[OmniAudit] ✗ Audit failed: {exc}")
 
-    asyncio.create_task(_scan())
+        asyncio.create_task(_scan())
+    else:
+        app_state.scan_status = "completed"
+        app_state.error_message = "Demo mode: no Gemini API key configured. Agent swarm is disabled."
+        logger.info("Gemini API key not found; running in demo mode without agent swarm.")
+        print("[OmniAudit] Gemini API key not found; running in demo mode without agent swarm.")
+
     yield  # server is running
     # shutdown — nothing to clean up
 
@@ -344,6 +356,11 @@ def serve_dashboard():
         status_dot = '<span class="h-2 w-2 rounded-full bg-red-500 mr-2"></span>Failed'
         detail = f"<span class='text-red-400'>{app_state.error_message}</span>"
         sub = ""
+        refresh = ""
+    elif app_state.scan_status == "completed":
+        status_dot = '<span class="h-2 w-2 rounded-full bg-green-500 mr-2"></span>Demo Mode'
+        detail = f"<span class='text-green-300'>Demo mode active. Upload files to /api/scan for a local security scan.</span>"
+        sub = f"{app_state.error_message}"
         refresh = ""
     else:
         status_dot = '<span class="h-2 w-2 rounded-full bg-gray-500 mr-2"></span>Idle'
